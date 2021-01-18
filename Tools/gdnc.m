@@ -20,6 +20,7 @@
 #import	"common.h"
 
 #include <stdio.h>
+#include <io.h>
 
 #import	"Foundation/NSArray.h"
 #import	"Foundation/NSAutoreleasePool.h"
@@ -1199,7 +1200,7 @@ main(int argc, char** argv, char** env)
 #endif
 	signal(sym, ihandler);
       }
-#ifndef __MINGW__
+#ifndef _WIN32
     signal(SIGPIPE, SIG_IGN);
     signal(SIGTTOU, SIG_IGN);
     signal(SIGTTIN, SIG_IGN);

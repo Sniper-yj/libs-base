@@ -55,7 +55,7 @@ gnustep_base_socket_init()
 // DLL entry function for GNUstep Base Library
 // This function gets called everytime a process/thread attaches to DLL
 //
-WINBOOL WINAPI
+WinBOOL WINAPI
 DllMain(HANDLE hInst, ULONG ul_reason_for_call,	LPVOID lpReserved)
 {
   switch(ul_reason_for_call)
@@ -97,8 +97,10 @@ DllMain(HANDLE hInst, ULONG ul_reason_for_call,	LPVOID lpReserved)
   return TRUE;
 }
 
+#ifndef __clang__
 /*
   This section terminates the list of imports under GCC. If you do not
   include this then you will have problems when linking with DLLs.
   */
 asm (".section .idata$3\n" ".long 0,0,0,0,0,0,0,0");
+#endif

@@ -59,6 +59,16 @@ $(WARN_FLAGS) \
 # Additional flags to pass to the Objective-C compiler
 #ADDITIONAL_OBJCFLAGS+=
 
+ifeq ($(GNUSTEP_TARGET_OS),mingw32)
+  ADDITIONAL_OBJCFLAGS += -DBUILD_libgnustep_base_DLL=1
+else ifeq ($(GNUSTEP_TARGET_OS),mingw64)
+  ADDITIONAL_OBJCFLAGS += -DBUILD_libgnustep_base_DLL=1
+else ifeq ($(GNUSTEP_TARGET_OS),cygwin)
+  ADDITIONAL_OBJCFLAGS += -DBUILD_libgnustep_base_DLL=1
+else ifeq ($(GNUSTEP_TARGET_OS),windows)
+  ADDITIONAL_OBJCFLAGS += -DBUILD_libgnustep_base_DLL=1
+endif
+
 # Additional flags to pass to the C compiler
 #ADDITIONAL_CFLAGS+= 
 

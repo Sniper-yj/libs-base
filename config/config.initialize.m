@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 #if defined(_WIN32)
-# define	mySleep(X)	usleep(1000*(X))
+# define	mySleep(X)	Sleep(1000*(X))
 #else
 # define	mySleep(X)	sleep(X)
 #endif
