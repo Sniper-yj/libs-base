@@ -15,7 +15,8 @@ esac
 
 install_gnustep_make() {
     cd $DEP_SRC
-    git clone https://github.com/gnustep/tools-make.git
+    # temporarily use clang-msvc-support branch (should be reverted)
+    git clone --single-branch --branch clang-msvc-support https://github.com/gnustep/tools-make.git
     cd tools-make
     if [ -n "$RUNTIME_VERSION" ]
     then
